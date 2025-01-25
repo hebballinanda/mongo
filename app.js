@@ -1,5 +1,5 @@
 const express = require('express');
-const { connect } = require('./mongoose-db');
+const { connect,disconnect } = require('./mongoose-db');
 require('dotenv').config()
 
 const app = express();
@@ -10,6 +10,7 @@ const startServer = async () =>{
         app.listen(process.env.PORT||"3000",()=>{
             console.log("Server is running in Port: ",process.env.PORT)
         })
+        await disconnect();
     }
     catch(err){
         console.log("Error in connecting to database")

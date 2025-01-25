@@ -30,7 +30,7 @@ function getDb (){
 const disconnect = async () => {
     try {
         if (client) {
-            await client.close();
+            await mongoose.disconnect();
             console.log("Database connection closed.");
         }
     } catch (err) {
