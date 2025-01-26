@@ -15,6 +15,7 @@ const connect = async () => {
             await client.connect();
             dbInstance = client.db(process.env.DBNAME); // Replace 'DBNAME' with your actual database name if not using environment variables
             console.log("Connected to the database successfully.");
+            return dbInstance;
         }
         return dbInstance;
     } catch (err) {
